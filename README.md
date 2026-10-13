@@ -1,7 +1,7 @@
 # 🏙️ Future City Project | مشروع مدينة المستقبل
 
 > A student-designed sustainable smart city — car-free, solar-powered, and built around people.
-> Led and presented on the web by **Mohammed Khaled** with his school team.
+> Website designed and built by **Mohammed Khaled** with his school team.
 
 ![Future City model](city-model.jpg)
 
@@ -36,7 +36,7 @@ A scale-model concept of a small sustainable city: modern houses, **two schools*
 3. **Solar-powered lighting** — `solar-panels.jpg`
 4. **Footstep-energy tiles (piezoelectric)** — `piezoelectric-tiles.jpg`
 
-### My role — Mohammed Khaled (project lead)
+### My role — Mohammed Khaled
 
 - Co-designed the city concept and researched both energy systems (solar + piezoelectric).
 - **Designed and coded this entire website from scratch** — semantic HTML, custom CSS, vanilla JS language toggle. No templates, no frameworks.
@@ -44,7 +44,7 @@ A scale-model concept of a small sustainable city: modern houses, **two schools*
 
 ### Team
 
-- **Mohammed Khaled** — concept, energy research & website (project lead)
+- **Mohammed Khaled** — concept, energy research & website
 - Saeed Hamad — model design & build
 - Hamad Al Nuaimi — urban planning & build
 - Mohammed Mahmoud — research & build
@@ -70,7 +70,7 @@ future-city-project/
 ├── solar-panels.jpg      # solar panels
 ├── piezoelectric-tiles.jpg        # piezoelectric tiles
 ├── saeed-hamad.jpg        # team photo
-├── mohammed-khaled.jpg    # project lead photo
+├── mohammed-khaled.jpg    # photo of Mohammed Khaled
 └── README.md
 ```
 
@@ -86,14 +86,14 @@ future-city-project/
 - **🚲 تنقل بلا سيارات** — طرق قصيرة متصلة تُغني عن السيارات وتخفض الانبعاثات والضوضاء.
 - **🌬️ مبانٍ تتنفس** — اتجاه الشوارع وفتحات الجدران توجه الهواء الطبيعي عبر البيوت فيقل الاحتياج للمكيفات.
 
-### دوري — محمد خالد (قائد المشروع)
+### دوري — محمد خالد
 
 - شاركت في تصميم الفكرة وبحث نظامي الطاقة (الشمسية + البيزوالكترك).
 - **صممت وبرمجت هذا الموقع كاملًا من الصفر** — HTML دلالي وCSS مخصص وJavaScript خالص لتبديل اللغة، دون قوالب أو أطر جاهزة.
 
 ### الفريق
 
-- **محمد خالد** — الفكرة وبحث الطاقة والموقع (قائد المشروع)
+- **محمد خالد** — الفكرة وبحث الطاقة والموقع
 - سعيد حمد — تصميم وتنفيذ المجسّم
 - حمد النعيمي — التخطيط العمراني والبناء
 - محمد محمود — البحث والبناء

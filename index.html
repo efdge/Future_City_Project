@@ -188,15 +188,6 @@
     }
     .member strong { display: block; font-size: 0.95rem; }
     .member .role { display: block; color: var(--muted); font-size: 0.8rem; margin-top: 2px; }
-    .member.lead { border: 2px solid var(--teal); }
-    .member.lead img { border-color: var(--teal); }
-    .lead-badge {
-      position: absolute; top: -12px; inset-inline-start: 50%; transform: translateX(-50%);
-      background: var(--teal); color: #fff; font-size: 0.72rem; font-weight: 800;
-      padding: 3px 13px; border-radius: 999px; white-space: nowrap;
-    }
-    html[dir="rtl"] .lead-badge { transform: translateX(50%); }
-
     .author { display: grid; grid-template-columns: 120px 1fr; gap: 22px; padding: 28px; align-items: start; }
     .author img { width: 120px; height: 120px; border-radius: 18px; object-fit: cover; border: 2px solid var(--line); }
     .author h3 { margin: 0 0 4px; }
@@ -378,8 +369,7 @@
             <strong>Saeed Hamad</strong>
             <span class="role" data-i18n="r_saeed">Model Design &amp; Build</span>
           </div>
-          <div class="card member lead">
-            <span class="lead-badge" data-i18n="lead_badge">★ Project lead</span>
+          <div class="card member">
             <img src="mohammed-khaled.jpg" alt="Portrait of Mohammed Khaled" loading="lazy" onerror="this.outerHTML='<span class=&quot;avatar-initials&quot; aria-hidden=&quot;true&quot;>M</span>'">
             <strong>Mohammed Khaled</strong>
             <span class="role" data-i18n="r_mohammed">Concept, energy research &amp; website</span>
@@ -407,10 +397,10 @@
         <p class="kicker" data-i18n="k_author">For reviewers</p>
         <h2 class="section-title" id="author-h" data-i18n="author_h">About the builder</h2>
         <div class="card author">
-          <img src="mohammed-khaled.jpg" alt="Mohammed Khaled, project lead and website builder" loading="lazy">
+          <img src="mohammed-khaled.jpg" alt="Mohammed Khaled, website builder" loading="lazy">
           <div>
             <h3>Mohammed Khaled</h3>
-            <p class="author-sub" data-i18n="author_sub">Project lead — concept, sustainability research &amp; this website</p>
+            <p class="author-sub" data-i18n="author_sub">Concept, sustainability research &amp; this website</p>
             <p data-i18n="author_p">I co-designed the Future City concept with my team, researched its two energy systems (rooftop solar and piezoelectric streets), and designed and coded this bilingual website from scratch with HTML, CSS and JavaScript — no templates, no frameworks.</p>
             <ul>
               <li data-i18n="au_l1">Applied sustainability thinking: walkability, passive cooling, on-site renewables</li>
@@ -477,9 +467,8 @@
         team_sub: "Five students — model building, research and web presentation.",
         r_saeed: "Model Design & Build", r_mohammed: "Concept, energy research & website",
         r_hamad: "Urban Planning & Build", r_mahmoud: "Research & Build", r_aziz: "Research & Build",
-        lead_badge: "★ Project lead",
         k_author: "For reviewers", author_h: "About the builder",
-        author_sub: "Project lead — concept, sustainability research & this website",
+        author_sub: "Concept, sustainability research & this website",
         author_p: "I co-designed the Future City concept with my team, researched its two energy systems (rooftop solar and piezoelectric streets), and designed and coded this bilingual website from scratch with HTML, CSS and JavaScript — no templates, no frameworks.",
         au_l1: "Applied sustainability thinking: walkability, passive cooling, on-site renewables",
         au_l2: "Built a responsive, accessible, bilingual (EN/AR) static website",
@@ -532,9 +521,8 @@
         team_sub: "خمسة طلاب — بناء المجسّم والبحث والعرض عبر الويب.",
         r_saeed: "تصميم وتنفيذ المجسّم", r_mohammed: "الفكرة وبحث الطاقة والموقع",
         r_hamad: "التخطيط العمراني والبناء", r_mahmoud: "البحث والبناء", r_aziz: "البحث والبناء",
-        lead_badge: "★ قائد المشروع",
         k_author: "للمراجعين", author_h: "عن المنفّذ",
-        author_sub: "قائد المشروع — الفكرة وبحث الاستدامة وهذا الموقع",
+        author_sub: "الفكرة وبحث الاستدامة وهذا الموقع",
         author_p: "شاركت في تصميم فكرة مدينة المستقبل مع فريقي، وبحثت نظامي الطاقة (الشمسية على الأسطح وشوارع البيزوالكترك)، وصممت وبرمجت هذا الموقع ثنائي اللغة من الصفر بـ HTML وCSS وJavaScript — دون قوالب أو أطر جاهزة.",
         au_l1: "تفكير استدامة تطبيقي: مشي وتهوية طبيعية وطاقة متجددة محلية",
         au_l2: "بناء موقع ثابت متجاوب وسهل الوصول وثنائي اللغة (EN/AR)",
