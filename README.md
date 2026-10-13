@@ -1,98 +1,108 @@
-# 🏙️ مشروع مدينة المستقبل | Future City Project
+# 🏙️ Future City Project | مشروع مدينة المستقبل
 
-![صورة مدينة المستقبل](product.jpg)
+> A student-designed sustainable smart city — car-free, solar-powered, and built around people.
+> Led and presented on the web by **Mohammed Khaled** with his school team.
 
----
+![Future City model](city-model.jpg)
 
-## 🇸🇦 بالعربية
-
-### وصف المشروع
-
-المشروع عبارة عن مدينة مستقبلية صغيرة مصممة لتكون صديقة للبيئة وتوفر أسلوب حياة مريح ومستدام. تحتوي المدينة على مدرستين وسوبرماركت مركزي يخدم السكان، بالإضافة إلى مجموعة من المنازل الحديثة.
-
-- **التنقل:** جميع المرافق قريبة من البيوت، فيمكن الوصول إليها بالدراجات الهوائية أو المشي دون الحاجة إلى السيارات، وهذا يقلل التلوث ويجعل المدينة أكثر هدوءًا وصحية.
-- **التهوية:** تخطيط البيوت والشوارع يسمح بمرور الهواء بين المنازل، مما يقلل الحاجة إلى أجهزة التبريد. كل بيت فيه فتحات لدخول الهواء وخروجه لتجديده وتبريده بشكل طبيعي.
-- **الطاقة:** ألواح شمسية على أسطح المنازل لتوليد الكهرباء النظيفة. كما تُستخدم بلاطات **البيزوالكترك (Piezoelectric)** في الأرصفة والشوارع لتحويل ضغط خطوات المشاة إلى كهرباء تشغّل إنارة الشوارع وإشارات المرور.
-
-### المميزات
-
-- الاعتماد على الطاقة المتجددة
-- مواصلات ذكية وبدون انبعاثات
-- مباني ذكية وصديقة للبيئة
-
-### الفوائد
-
-- تحسين جودة الحياة
-- الحفاظ على البيئة
-- تقليل التلوث والضوضاء
-- تشجيع الابتكار والتكنولوجيا
-
-### أهم النقاط في المشروع
-
-**1. تصميم ثلاثي الأبعاد واقعي**
-
-![تصميم ثلاثي الأبعاد](product.jpg)
-
-**2. محاكاة حركة المرور الذكية**
-
-![حركة المرور الذكية](123.jpg)
-
-**3. نظام إضاءة يعمل بالطاقة الشمسية**
-
-![الإضاءة بالطاقة الشمسية](souler.jpg)
-
-**4. استخدام بلاطات خاصة لتوليد الكهرباء عند المشي عليها (Piezoelectric)**
-
-![تقنية البيزوالكترك](none.jpg)
-
-### فريق العمل
-
-- سعيد حمد
-- محمد خالد
-- حمد النعيمي
-- محمد محمود
-- عزيز غريب
+**Live page:** open `index.html` in any browser — no build step, no dependencies.
+Bilingual: **English by default, العربية بضغطة زر.**
 
 ---
 
 ## 🇬🇧 In English
 
-### Project Description
+### What it is
 
-The project is a small futuristic city designed to be eco-friendly and provide a comfortable and sustainable lifestyle. The city includes two schools and a central supermarket serving the residents, along with a group of modern houses.
+A scale-model concept of a small sustainable city: modern houses, **two schools** and **one central market**, all within walking or cycling distance. Three systems work as one:
 
-- **Transport:** All facilities are within walking or cycling distance, so cars are not needed. This reduces pollution and makes the city quieter and healthier.
-- **Airflow:** Houses and streets are arranged to allow natural airflow, reducing the need for air conditioners. Each home has openings for air circulation to keep it cool naturally.
-- **Energy:** Solar panels on rooftops generate clean electricity. Special **Piezoelectric** tiles on sidewalks and streets convert footsteps into electricity for powering streetlights and traffic signals.
+- **☀️ Clean energy, on site** — rooftop solar panels power homes; piezoelectric sidewalk tiles turn footsteps into electricity for streetlights and signals.
+- **🚲 Car-free mobility** — short connected routes replace cars, cutting emissions, noise and danger.
+- **🌬️ Buildings that breathe** — street orientation + wall openings drive natural airflow, reducing air-conditioning.
 
-### Features
+### Why it matters
 
-- Dependence on renewable energy
-- Smart and emission-free transportation
-- Eco-friendly smart buildings
+| Benefit | How the design delivers it |
+|---|---|
+| Better daily life | Quiet streets, short walks, cleaner air |
+| Protected environment | On-site renewables instead of fossil fuel |
+| Less pollution & noise | No inner-city car traffic |
+| Hands-on innovation | Students researching + building real systems |
 
-### Benefits
+### Design highlights
 
-- Improving quality of life
-- Environmental preservation
-- Reducing pollution and noise
-- Encouraging innovation and technology
+1. **Realistic physical model** — `city-model.jpg`
+2. **Walkable street layout** — `walkable-streets.jpg`
+3. **Solar-powered lighting** — `solar-panels.jpg`
+4. **Footstep-energy tiles (piezoelectric)** — `piezoelectric-tiles.jpg`
 
-### Main Highlights
+### My role — Mohammed Khaled (project lead)
 
-1. Realistic 3D Design
-2. Smart Traffic Simulation
-3. Solar-Powered Lighting System
-4. Piezoelectric Tiles for Energy Generation
+- Co-designed the city concept and researched both energy systems (solar + piezoelectric).
+- **Designed and coded this entire website from scratch** — semantic HTML, custom CSS, vanilla JS language toggle. No templates, no frameworks.
+- Skills demonstrated: sustainability thinking, responsive/accessible frontend, bilingual technical communication.
 
-### Team Members
+### Team
 
-- Saeed Hamad
-- Mohammed Khaled
-- Hamad Al Nuaimi
-- Mohammed Mahmoud
-- Aziz Ghareeb
+- **Mohammed Khaled** — concept, energy research & website (project lead)
+- Saeed Hamad — model design & build
+- Hamad Al Nuaimi — urban planning & build
+- Mohammed Mahmoud — research & build
+- Aziz Ghareeb — research & build
+
+### Run it locally
+
+```bash
+# any static server works, or just double-click index.html
+python -m http.server 8000
+# → http://localhost:8000
+```
+
+To publish free on GitHub Pages: repo Settings → Pages → Deploy from branch → `main` + `/root`. Your scholarship letter can then link directly to the live page.
+
+### Project structure
+
+```
+future-city-project/
+├── index.html      # the whole site (HTML + CSS + JS, bilingual EN/AR)
+├── city-model.jpg     # city model (hero + gallery)
+├── walkable-streets.jpg         # walkable streets
+├── solar-panels.jpg      # solar panels
+├── piezoelectric-tiles.jpg        # piezoelectric tiles
+├── saeed-hamad.jpg        # team photo
+├── mohammed-khaled.jpg    # project lead photo
+└── README.md
+```
 
 ---
 
-© 2025 - مشروع مدينة المستقبل | مدرسة المستقبل (Future School)
+## 🇸🇦 بالعربية
+
+### ما هو المشروع؟
+
+نموذج مصغّر لمدينة صغيرة مستدامة: بيوت حديثة و**مدرستان** و**سوق مركزي**، كلها على مسافة مشي أو دراجة. ثلاث منظومات تعمل كواحدة:
+
+- **☀️ طاقة نظيفة محلية** — ألواح شمسية على الأسطح للبيوت، وبلاطات بيزوالكترك في الأرصفة تحوّل خطوات المشاة إلى كهرباء للإنارة والإشارات.
+- **🚲 تنقل بلا سيارات** — طرق قصيرة متصلة تُغني عن السيارات وتخفض الانبعاثات والضوضاء.
+- **🌬️ مبانٍ تتنفس** — اتجاه الشوارع وفتحات الجدران توجه الهواء الطبيعي عبر البيوت فيقل الاحتياج للمكيفات.
+
+### دوري — محمد خالد (قائد المشروع)
+
+- شاركت في تصميم الفكرة وبحث نظامي الطاقة (الشمسية + البيزوالكترك).
+- **صممت وبرمجت هذا الموقع كاملًا من الصفر** — HTML دلالي وCSS مخصص وJavaScript خالص لتبديل اللغة، دون قوالب أو أطر جاهزة.
+
+### الفريق
+
+- **محمد خالد** — الفكرة وبحث الطاقة والموقع (قائد المشروع)
+- سعيد حمد — تصميم وتنفيذ المجسّم
+- حمد النعيمي — التخطيط العمراني والبناء
+- محمد محمود — البحث والبناء
+- عزيز غريب — البحث والبناء
+
+### التشغيل محليًا
+
+افتح ملف `index.html` في أي متصفح مباشرة — لا يحتاج بناءً ولا مكتبات.
+
+---
+
+© 2026 Future City Project • Built by Mohammed Khaled with the school team

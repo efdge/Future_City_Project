@@ -1,302 +1,568 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>مشروع مدينة المستقبل</title>
+  <title>Future City Project — Sustainable Smart City by Mohammed Khaled</title>
+  <meta name="description" content="A student-designed sustainable smart city: car-free mobility, solar-powered homes, natural ventilation and piezoelectric streets. Designed and built for the web by Mohammed Khaled with his school team.">
+  <meta property="og:title" content="Future City Project — Sustainable Smart City">
+  <meta property="og:description" content="Car-free streets, solar rooftops, breathing homes and walkways that generate electricity. A student innovation project.">
+  <meta property="og:image" content="city-model.jpg">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230e7c7b'/%3E%3Cpath d='M9 22V12l7-4 7 4v10h-5v-6h-4v6z' fill='white'/%3E%3C/svg%3E">
   <style>
+    :root {
+      --teal: #0e7c7b;
+      --teal-dark: #0a5e5d;
+      --teal-soft: #e3f1f0;
+      --ink: #10292a;
+      --muted: #496364;
+      --bg: #f4f8f7;
+      --card: #ffffff;
+      --line: #dbe7e5;
+      --amber: #b45309;
+      --amber-soft: #fef3e2;
+      --radius: 14px;
+      --shadow: 0 1px 3px rgba(16, 41, 42, 0.08), 0 6px 20px rgba(16, 41, 42, 0.07);
+      --max: 1080px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: 'Tahoma', sans-serif;
-      background-color: #f4f4f4;
       margin: 0;
-      padding: 0;
-      transition: all 0.3s ease;
+      font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.7;
     }
-
-    header {
-      background-color: #008080;
-      color: white;
-      padding: 20px;
-      text-align: center;
-      position: relative;
+    html[lang="ar"] body { font-family: Tahoma, "Segoe UI", Arial, sans-serif; }
+    .skip-link {
+      position: absolute; left: -9999px; top: 0;
+      background: var(--ink); color: #fff; padding: 10px 16px; z-index: 100;
+      border-radius: 0 0 8px 0;
     }
+    .skip-link:focus { left: 0; }
+    a { color: var(--teal-dark); }
+    :focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; border-radius: 4px; }
 
-    #lang-toggle {
-      position: absolute;
-      top: 15px;
-      left: 20px;
-      background-color: white;
-      color: #008080;
-      border: none;
-      padding: 8px 15px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background 0.3s;
+    /* Header */
+    .site-header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--line);
     }
-
-    #lang-toggle:hover {
-      background-color: #e0e0e0;
+    .nav {
+      max-width: var(--max); margin: 0 auto;
+      display: flex; align-items: center; gap: 16px;
+      padding: 12px 20px;
     }
-
-    .project-main {
-      width: 100%;
-      max-width: 600px;
-      height: auto;
-      display: block;
-      margin: 20px auto;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.05rem; color: var(--ink); text-decoration: none; }
+    .brand-mark {
+      width: 34px; height: 34px; border-radius: 9px; flex: none;
+      background: var(--teal); color: #fff;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 1rem;
     }
-
-    section {
-      padding: 20px;
-      margin: 20px;
-      background-color: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    .nav-links { display: flex; gap: 4px; margin-inline-start: auto; flex-wrap: wrap; }
+    .nav-links a {
+      text-decoration: none; color: var(--muted); font-size: 0.92rem; font-weight: 600;
+      padding: 8px 12px; border-radius: 9px;
     }
-
-    h2 {
-      color: #008080;
+    .nav-links a:hover { background: var(--teal-soft); color: var(--teal-dark); }
+    .lang-btn {
+      flex: none;
+      border: 1.5px solid var(--teal); background: #fff; color: var(--teal-dark);
+      font-weight: 700; font-size: 0.88rem; cursor: pointer;
+      padding: 8px 16px; border-radius: 999px;
     }
+    .lang-btn:hover { background: var(--teal); color: #fff; }
 
-    ul {
-      list-style: square;
-      padding-right: 20px;
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+
+    /* Hero */
+    .hero {
+      background:
+        radial-gradient(900px 340px at 85% -60px, #cdeae7 0%, transparent 60%),
+        linear-gradient(180deg, #eef6f5 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--line);
     }
-
-    .point {
-      margin-bottom: 30px;
+    .hero-grid {
+      display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 36px;
+      align-items: center; padding: 52px 0 40px;
     }
-
-    .point h3 {
-      color: #333;
-      border-bottom: 2px solid #008080;
-      padding-bottom: 5px;
-      margin-bottom: 10px;
+    .badge {
+      display: inline-block; font-size: 0.8rem; font-weight: 700;
+      background: #fff; border: 1px solid var(--line); color: var(--teal-dark);
+      padding: 6px 14px; border-radius: 999px; margin-bottom: 14px;
     }
-
-    .point-image {
-      width: 100%;
-      max-width: 600px;
-      border-radius: 10px;
-      display: block;
-      margin: 0 auto;
+    .hero h1 { font-size: 2.35rem; line-height: 1.25; margin: 0 0 12px; letter-spacing: -0.01em; }
+    html[lang="ar"] .hero h1 { letter-spacing: 0; line-height: 1.6; }
+    .hero h1 .accent { color: var(--teal-dark); }
+    .lead { color: var(--muted); font-size: 1.06rem; margin: 0 0 22px; max-width: 34rem; }
+    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 26px; }
+    .btn {
+      display: inline-block; text-decoration: none; font-weight: 700; font-size: 0.95rem;
+      padding: 12px 22px; border-radius: 11px; border: 1.5px solid var(--teal);
     }
-
-    .team {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
+    .btn-primary { background: var(--teal); color: #fff; }
+    .btn-primary:hover { background: var(--teal-dark); }
+    .btn-ghost { background: #fff; color: var(--teal-dark); }
+    .btn-ghost:hover { background: var(--teal-soft); }
+    .hero figure { margin: 0; }
+    .hero img {
+      width: 100%; height: auto; display: block; border-radius: var(--radius);
+      box-shadow: var(--shadow); border: 1px solid var(--line);
     }
-
-    .member {
-      text-align: center;
-      width: 160px;
+    .hero figcaption { font-size: 0.82rem; color: var(--muted); margin-top: 8px; text-align: center; }
+    .stats {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+      padding: 0 0 44px;
     }
-
-    .member img {
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 2px solid #008080;
+    .stat {
+      background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+      padding: 14px 16px; text-align: center;
     }
+    .stat strong { display: block; font-size: 1.35rem; color: var(--teal-dark); }
+    .stat span { font-size: 0.84rem; color: var(--muted); }
 
-    footer {
-      background-color: #008080;
-      color: white;
-      text-align: center;
-      padding: 10px;
+    /* Sections */
+    section.block { padding: 44px 0 8px; }
+    .kicker { color: var(--teal-dark); font-weight: 800; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 6px; }
+    html[lang="ar"] .kicker { letter-spacing: 0; }
+    h2.section-title { font-size: 1.6rem; margin: 0 0 10px; }
+    .section-sub { color: var(--muted); margin: 0 0 22px; max-width: 44rem; }
+    .card {
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: var(--radius); box-shadow: var(--shadow);
+    }
+    .prose { padding: 26px 28px; }
+    .prose p { margin: 0 0 14px; }
+    .prose p:last-child { margin-bottom: 0; }
+
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .pillar { padding: 24px; }
+    .pillar-icon {
+      width: 44px; height: 44px; border-radius: 12px; font-size: 1.35rem;
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--teal-soft); margin-bottom: 12px;
+    }
+    .pillar h3 { margin: 0 0 8px; font-size: 1.08rem; }
+    .pillar p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+    .pillar.energy .pillar-icon { background: var(--amber-soft); }
+
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .spot { padding: 24px; }
+    .spot h3 { margin: 0 0 8px; font-size: 1.1rem; }
+    .spot p { margin: 0 0 10px; color: var(--muted); font-size: 0.95rem; }
+    .tag {
+      display: inline-block; font-size: 0.76rem; font-weight: 800;
+      padding: 3px 11px; border-radius: 999px; margin-bottom: 10px;
+      background: var(--teal-soft); color: var(--teal-dark);
+    }
+    .tag.amber { background: var(--amber-soft); color: var(--amber); }
+
+    .gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .shot { overflow: hidden; }
+    .shot img { width: 100%; height: 230px; object-fit: cover; display: block; }
+    .shot div { padding: 16px 18px; }
+    .shot h3 { margin: 0 0 4px; font-size: 1rem; }
+    .shot p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+
+    .benefits { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; list-style: none; margin: 0; padding: 0; }
+    .benefits li { padding: 20px; text-align: center; }
+    .benefits .b-icon { font-size: 1.6rem; display: block; margin-bottom: 8px; }
+    .benefits strong { display: block; margin-bottom: 4px; font-size: 0.98rem; }
+    .benefits span { color: var(--muted); font-size: 0.87rem; }
+
+    /* Team */
+    .team-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+    .member { padding: 22px 14px; text-align: center; position: relative; }
+    .member img, .avatar-initials {
+      width: 92px; height: 92px; border-radius: 50%; object-fit: cover;
+      border: 3px solid var(--teal-soft); margin: 0 auto 10px; display: block;
+    }
+    .avatar-initials {
+      background: var(--teal-soft); color: var(--teal-dark);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.7rem; font-weight: 800;
+    }
+    .member strong { display: block; font-size: 0.95rem; }
+    .member .role { display: block; color: var(--muted); font-size: 0.8rem; margin-top: 2px; }
+    .member.lead { border: 2px solid var(--teal); }
+    .member.lead img { border-color: var(--teal); }
+    .lead-badge {
+      position: absolute; top: -12px; inset-inline-start: 50%; transform: translateX(-50%);
+      background: var(--teal); color: #fff; font-size: 0.72rem; font-weight: 800;
+      padding: 3px 13px; border-radius: 999px; white-space: nowrap;
+    }
+    html[dir="rtl"] .lead-badge { transform: translateX(50%); }
+
+    .author { display: grid; grid-template-columns: 120px 1fr; gap: 22px; padding: 28px; align-items: start; }
+    .author img { width: 120px; height: 120px; border-radius: 18px; object-fit: cover; border: 2px solid var(--line); }
+    .author h3 { margin: 0 0 4px; }
+    .author .author-sub { color: var(--teal-dark); font-weight: 700; font-size: 0.9rem; margin: 0 0 10px; }
+    .author p { color: var(--muted); font-size: 0.95rem; margin: 0 0 10px; }
+    .author ul { margin: 8px 0 0; padding-inline-start: 20px; color: var(--muted); font-size: 0.93rem; }
+
+    footer { background: var(--ink); color: #cfe0df; margin-top: 52px; }
+    .foot { max-width: var(--max); margin: 0 auto; padding: 30px 20px; display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+    .foot p { margin: 0; font-size: 0.88rem; }
+    .foot .spacer { flex: 1; }
+
+    @media (max-width: 920px) {
+      .hero-grid { grid-template-columns: 1fr; padding-top: 36px; }
+      .hero h1 { font-size: 1.9rem; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .grid-3 { grid-template-columns: 1fr; }
+      .split { grid-template-columns: 1fr; }
+      .gallery { grid-template-columns: 1fr; }
+      .benefits { grid-template-columns: repeat(2, 1fr); }
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { display: none; }
+      .author { grid-template-columns: 1fr; }
+      .author img { width: 96px; height: 96px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition: none !important; }
     }
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
 
-  <!-- الهيدر مع زر اللغة -->
-  <header>
-    <button id="lang-toggle">English</button>
-    <h1 id="title">مشروع أنسنة المدن</h1>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="#top"><span class="brand-mark">F</span><span data-i18n="brand">Future City</span></a>
+      <div class="nav-links">
+        <a href="#overview" data-i18n="nav_overview">Overview</a>
+        <a href="#pillars" data-i18n="nav_pillars">Pillars</a>
+        <a href="#innovation" data-i18n="nav_innovation">Innovation</a>
+        <a href="#gallery" data-i18n="nav_gallery">Gallery</a>
+        <a href="#team" data-i18n="nav_team">Team</a>
+      </div>
+      <button class="lang-btn" id="lang-toggle" aria-pressed="false" aria-label="Switch language">العربية</button>
+    </nav>
   </header>
 
-  <img src="product.jpg" alt="صورة مدينة المستقبل" class="project-main">
-
-  <section>
-    <h2 id="desc-title">وصف المشروع</h2>
-    <p id="desc-text">
-      المشروع عبارة عن مدينة مستقبلية صغيرة مصممة لتكون صديقة للبيئة وتوفر أسلوب حياة مريح ومستدام. تحتوي المدينة على مدرستين وسوبرماركت مركزي يخدم السكان، بالإضافة إلى مجموعة من المنازل الحديثة.<br><br>
-      تم تصميم تخطيط المدينة بحيث تكون جميع المرافق قريبة من البيوت، مما يجعل التنقل إليها ممكنًا باستخدام الدراجات الهوائية أو المشي فقط، دون الحاجة إلى السيارات. هذا يقلل من التلوث ويجعل المدينة أكثر هدوءًا وصحية.<br><br>
-      كما تم الاهتمام بـ تخطيط البيوت والشوارع بحيث يسمح بمرور الهواء بين المنازل، مما يقلل من الحاجة إلى أجهزة التبريد. كل بيت يحتوي على فتحات لدخول وخروج الهواء لتجديده باستمرار داخل المنزل وتبريده بشكل طبيعي.<br><br>
-      أما من ناحية الطاقة، فقد تم تركيب ألواح شمسية على أسطح المنازل لتوليد الكهرباء النظيفة من أشعة الشمس، مما يجعل المدينة تعتمد على الطاقة المتجددة بشكل كامل. بالإضافة إلى ذلك، تم استخدام بلاطات خاصة بتقنية <b>البيزوالكترك (Piezoelectric)</b> في الأرصفة والشوارع التي يمشي عليها الناس، حيث تقوم بتحويل ضغط خطوات المشاة إلى طاقة كهربائية يمكن استخدامها في تشغيل إنارة الشوارع وإشارات المرور.<br><br>
-      المدينة ليست فقط مكانًا للعيش، بل نموذج لمستقبل يعتمد على التصميم الذكي، الطاقة النظيفة، والحياة الصحية.
-    </p>
-  </section>
-
-  <section>
-    <h2 id="features-title">مميزات المشروع</h2>
-    <ul id="features-list">
-      <li>الاعتماد على الطاقة المتجددة</li>
-      <li>مواصلات ذكية وبدون انبعاثات</li>
-      <li>مباني ذكية وصديقة للبيئة</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2 id="benefits-title">فوائد المشروع</h2>
-    <ul id="benefits-list">
-      <li>تحسين جودة الحياة</li>
-      <li>الحفاظ على البيئة</li>
-      <li>تقليل التلوث والضوضاء</li>
-      <li>تشجيع الابتكار والتكنولوجيا</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2 id="points-title">أهم النقاط في المشروع</h2>
-
-    <div class="point">
-      <h3 id="p1-title">1. تصميم ثلاثي الأبعاد واقعي</h3>
-      <img src="product.jpg" alt="تصميم ثلاثي الأبعاد" class="point-image">
-    </div>
-
-    <div class="point">
-      <h3 id="p2-title">2. محاكاة حركة المرور الذكية</h3>
-      <img src="123.jpg" alt="حركة المرور الذكية" class="point-image">
-    </div>
-
-    <div class="point">
-      <h3 id="p3-title">3. نظام إضاءة يعمل بالطاقة الشمسية</h3>
-      <img src="souler.jpg" alt="الإضاءة بالطاقة الشمسية" class="point-image">
-    </div>
-
-    <div class="point">
-      <h3 id="p4-title">4. استخدام بلاطات خاصة لتوليد الكهرباء عند المشي عليها (Piezoelectric)</h3>
-      <img src="none.jpg" alt="تقنية البيزوالكترك" class="point-image">
-    </div>
-  </section>
-
-  <section>
-    <h2 id="team-title">فريق العمل</h2>
-    <div class="team">
-      <div class="member">
-        <img src="said.jpg" alt="عضو الفريق 1">
-        <p id="m1">سعيد حمد</p>
-      </div>
-      <div class="member">
-        <img src="khaled.jpg" alt="عضو الفريق 2">
-        <p id="m2">محمد خالد</p>
-      </div>
-      <div class="member">
-        <img src="students.jpg" alt="عضو الفريق 3">
-        <p id="m3">حمد النعيمي</p>
-      </div>
-      <div class="member">
-        <img src="students.jpg" alt="عضو الفريق 4">
-        <p id="m4">محمد محمود</p>
-      </div>
-      <div class="member">
-        <img src="students.jpg" alt="عضو الفريق 5">
-        <p id="m5">عزيز غريب</p>
+  <main id="main">
+    <!-- HERO -->
+    <div class="hero" id="top">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div>
+            <span class="badge" data-i18n="hero_badge">Student Innovation Project • Sustainable Smart City</span>
+            <h1 data-i18n="hero_title">A car-free, solar-powered neighborhood of the future</h1>
+            <p class="lead" data-i18n="hero_lead">A student-designed model of a small sustainable city — two schools and a central market within walking distance, naturally ventilated homes, and streets that generate their own electricity.</p>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="#gallery" data-i18n="cta_explore">Explore the design</a>
+              <a class="btn btn-ghost" href="#innovation" data-i18n="cta_how">How it works</a>
+            </div>
+          </div>
+          <figure>
+            <img src="city-model.jpg" alt="Physical model of the Future City with modern houses, streets and green spaces">
+            <figcaption data-i18n="hero_caption">Physical scale model of the Future City, built by the student team.</figcaption>
+          </figure>
+        </div>
+        <div class="stats" role="list">
+          <div class="stat" role="listitem"><strong data-i18n="stat1_v">100%</strong><span data-i18n="stat1_l">renewable electricity goal</span></div>
+          <div class="stat" role="listitem"><strong data-i18n="stat2_v">0 cars</strong><span data-i18n="stat2_l">needed inside the city</span></div>
+          <div class="stat" role="listitem"><strong data-i18n="stat3_v">2 + 1</strong><span data-i18n="stat3_l">schools plus central market</span></div>
+          <div class="stat" role="listitem"><strong data-i18n="stat4_v">2</strong><span data-i18n="stat4_l">clean energy systems</span></div>
+        </div>
       </div>
     </div>
-  </section>
 
-  <footer id="footer">
-    &copy; 2025 - مشروع مدينة المستقبل | مدرسة المستقبل
+    <div class="wrap">
+      <!-- OVERVIEW -->
+      <section class="block" id="overview" aria-labelledby="overview-h">
+        <p class="kicker" data-i18n="k_overview">Project overview</p>
+        <h2 class="section-title" id="overview-h" data-i18n="overview_h">A city designed around people, not cars</h2>
+        <p class="section-sub" data-i18n="overview_sub">Everything is close, quiet and clean — the layout itself does most of the work.</p>
+        <div class="card prose">
+          <p data-i18n="ov_p1">The Future City is a small model city planned to be eco-friendly and comfortable. It contains modern houses, two schools and one central supermarket serving all residents — every daily destination is within walking or cycling distance.</p>
+          <p data-i18n="ov_p2">Because nothing depends on cars, the city is quieter, safer and far less polluted. Homes and streets are spaced to let air flow naturally between buildings, with openings in each house that keep air circulating — cooling interiors without constant air-conditioning.</p>
+          <p data-i18n="ov_p3">Energy comes from the city itself: rooftop solar panels generate clean daytime power, while piezoelectric floor tiles in sidewalks convert the pressure of footsteps into electricity for street lighting and signals. It is not just a place to live — it is a working model of a smarter, cleaner future.</p>
+        </div>
+      </section>
+
+      <!-- PILLARS -->
+      <section class="block" id="pillars" aria-labelledby="pillars-h">
+        <p class="kicker" data-i18n="k_pillars">Design pillars</p>
+        <h2 class="section-title" id="pillars-h" data-i18n="pillars_h">Three ideas hold the whole city together</h2>
+        <p class="section-sub" data-i18n="pillars_sub">Energy, mobility and housing were designed as one system, not three separate problems.</p>
+        <div class="grid-3">
+          <div class="card pillar energy">
+            <span class="pillar-icon" aria-hidden="true">☀️</span>
+            <h3 data-i18n="p1_h">Clean energy, generated on site</h3>
+            <p data-i18n="p1_p">Rooftop solar panels power homes from sunlight, supported by footstep-energy tiles that light the streets at night.</p>
+          </div>
+          <div class="card pillar">
+            <span class="pillar-icon" aria-hidden="true">🚲</span>
+            <h3 data-i18n="p2_h">Car-free, walkable mobility</h3>
+            <p data-i18n="p2_p">Schools, shops and homes sit close together, so walking and cycling replace cars — cutting emissions and noise.</p>
+          </div>
+          <div class="card pillar">
+            <span class="pillar-icon" aria-hidden="true">🌬️</span>
+            <h3 data-i18n="p3_h">Buildings that breathe</h3>
+            <p data-i18n="p3_p">Street orientation and wall openings channel natural airflow through every home, reducing the need for cooling.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- INNOVATION -->
+      <section class="block" id="innovation" aria-labelledby="innovation-h">
+        <p class="kicker" data-i18n="k_innov">Innovation spotlight</p>
+        <h2 class="section-title" id="innovation-h" data-i18n="innov_h">How the city powers itself</h2>
+        <p class="section-sub" data-i18n="innov_sub">Two complementary renewable systems — one for rooftops, one for the streets people walk every day.</p>
+        <div class="split">
+          <div class="card spot">
+            <span class="tag amber" data-i18n="spot1_tag">System 1 • Rooftops</span>
+            <h3 data-i18n="spot1_h">Solar panels on every home</h3>
+            <p data-i18n="spot1_p">Each rooftop carries photovoltaic panels that convert sunlight directly into household electricity — the city's primary power source and the reason it can aim for full renewable independence.</p>
+          </div>
+          <div class="card spot">
+            <span class="tag" data-i18n="spot2_tag">System 2 • Streets</span>
+            <h3 data-i18n="spot2_h">Piezoelectric walkways</h3>
+            <p data-i18n="spot2_p">Special floor tiles under sidewalks turn the pressure of every footstep into small electric charges. Collected across thousands of steps, this energy powers streetlights and traffic signals.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- GALLERY -->
+      <section class="block" id="gallery" aria-labelledby="gallery-h">
+        <p class="kicker" data-i18n="k_gallery">Design highlights</p>
+        <h2 class="section-title" id="gallery-h" data-i18n="gallery_h">From model to systems</h2>
+        <p class="section-sub" data-i18n="gallery_sub">Key views of the physical model and the technologies inside it.</p>
+        <div class="gallery">
+          <figure class="card shot" style="margin:0">
+            <img src="city-model.jpg" alt="Realistic 3D-style view of the city model" loading="lazy">
+            <div><h3 data-i18n="g1_h">1. Realistic physical model</h3><p data-i18n="g1_p">A detailed scale model showing homes, streets and shared facilities.</p></div>
+          </figure>
+          <figure class="card shot" style="margin:0">
+            <img src="walkable-streets.jpg" alt="Car-free street layout for walking and cycling" loading="lazy">
+            <div><h3 data-i18n="g2_h">2. Walkable street layout</h3><p data-i18n="g2_p">Short, connected routes designed for pedestrians and bicycles.</p></div>
+          </figure>
+          <figure class="card shot" style="margin:0">
+            <img src="solar-panels.jpg" alt="Rooftop solar panels on model houses" loading="lazy">
+            <div><h3 data-i18n="g3_h">3. Solar-powered lighting</h3><p data-i18n="g3_p">Rooftop panels feeding clean electricity into homes and lights.</p></div>
+          </figure>
+          <figure class="card shot" style="margin:0">
+            <img src="piezoelectric-tiles.jpg" alt="Piezoelectric energy tiles concept" loading="lazy">
+            <div><h3 data-i18n="g4_h">4. Footstep-energy tiles</h3><p data-i18n="g4_p">Piezoelectric tiles converting footsteps into street power.</p></div>
+          </figure>
+        </div>
+      </section>
+
+      <!-- BENEFITS -->
+      <section class="block" id="benefits" aria-labelledby="benefits-h">
+        <p class="kicker" data-i18n="k_impact">Impact</p>
+        <h2 class="section-title" id="benefits-h" data-i18n="ben_h">Why it matters</h2>
+        <p class="section-sub" data-i18n="ben_sub">The design pays off in health, environment and learning at the same time.</p>
+        <ul class="benefits">
+          <li class="card"><span class="b-icon" aria-hidden="true">💚</span><strong data-i18n="b1_h">Better daily life</strong><span data-i18n="b1_p">Quiet streets, short walks, cleaner air.</span></li>
+          <li class="card"><span class="b-icon" aria-hidden="true">🌍</span><strong data-i18n="b2_h">Protected environment</strong><span data-i18n="b2_p">Renewables instead of fossil fuel.</span></li>
+          <li class="card"><span class="b-icon" aria-hidden="true">🔇</span><strong data-i18n="b3_h">Less pollution &amp; noise</strong><span data-i18n="b3_p">No inner-city car traffic.</span></li>
+          <li class="card"><span class="b-icon" aria-hidden="true">💡</span><strong data-i18n="b4_h">Hands-on innovation</strong><span data-i18n="b4_p">Students building real systems.</span></li>
+        </ul>
+      </section>
+
+      <!-- TEAM -->
+      <section class="block" id="team" aria-labelledby="team-h">
+        <p class="kicker" data-i18n="k_team">Team</p>
+        <h2 class="section-title" id="team-h" data-i18n="team_h">Meet the team</h2>
+        <p class="section-sub" data-i18n="team_sub">Five students — model building, research and web presentation.</p>
+        <div class="team-grid">
+          <div class="card member">
+            <img src="saeed-hamad.jpg" alt="Portrait of Saeed Hamad" loading="lazy" onerror="this.outerHTML='<span class=&quot;avatar-initials&quot; aria-hidden=&quot;true&quot;>S</span>'">
+            <strong>Saeed Hamad</strong>
+            <span class="role" data-i18n="r_saeed">Model Design &amp; Build</span>
+          </div>
+          <div class="card member lead">
+            <span class="lead-badge" data-i18n="lead_badge">★ Project lead</span>
+            <img src="mohammed-khaled.jpg" alt="Portrait of Mohammed Khaled" loading="lazy" onerror="this.outerHTML='<span class=&quot;avatar-initials&quot; aria-hidden=&quot;true&quot;>M</span>'">
+            <strong>Mohammed Khaled</strong>
+            <span class="role" data-i18n="r_mohammed">Concept, energy research &amp; website</span>
+          </div>
+          <div class="card member">
+            <span class="avatar-initials" aria-hidden="true">H</span>
+            <strong>Hamad Al Nuaimi</strong>
+            <span class="role" data-i18n="r_hamad">Urban Planning &amp; Build</span>
+          </div>
+          <div class="card member">
+            <span class="avatar-initials" aria-hidden="true">M</span>
+            <strong>Mohammed Mahmoud</strong>
+            <span class="role" data-i18n="r_mahmoud">Research &amp; Build</span>
+          </div>
+          <div class="card member">
+            <span class="avatar-initials" aria-hidden="true">A</span>
+            <strong>Aziz Ghareeb</strong>
+            <span class="role" data-i18n="r_aziz">Research &amp; Build</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- AUTHOR -->
+      <section class="block" id="author" aria-labelledby="author-h">
+        <p class="kicker" data-i18n="k_author">For reviewers</p>
+        <h2 class="section-title" id="author-h" data-i18n="author_h">About the builder</h2>
+        <div class="card author">
+          <img src="mohammed-khaled.jpg" alt="Mohammed Khaled, project lead and website builder" loading="lazy">
+          <div>
+            <h3>Mohammed Khaled</h3>
+            <p class="author-sub" data-i18n="author_sub">Project lead — concept, sustainability research &amp; this website</p>
+            <p data-i18n="author_p">I co-designed the Future City concept with my team, researched its two energy systems (rooftop solar and piezoelectric streets), and designed and coded this bilingual website from scratch with HTML, CSS and JavaScript — no templates, no frameworks.</p>
+            <ul>
+              <li data-i18n="au_l1">Applied sustainability thinking: walkability, passive cooling, on-site renewables</li>
+              <li data-i18n="au_l2">Built a responsive, accessible, bilingual (EN/AR) static website</li>
+              <li data-i18n="au_l3">Presented technical ideas for a non-technical audience</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="foot">
+      <p data-i18n="footer">© 2026 Future City Project • Built by Mohammed Khaled with the school team</p>
+      <span class="spacer"></span>
+      <p><a href="#top" style="color:#fff" data-i18n="back_top">Back to top ↑</a></p>
+    </div>
   </footer>
 
   <script>
-    const langBtn = document.getElementById('lang-toggle');
-    let lang = 'ar';
-
-    langBtn.addEventListener('click', () => {
-      if (lang === 'ar') {
-        document.documentElement.lang = 'en';
-        document.documentElement.dir = 'ltr';
-        langBtn.textContent = 'العربية';
-        lang = 'en';
-
-        document.getElementById('title').textContent = 'Future City Project';
-        document.getElementById('desc-title').textContent = 'Project Description';
-        document.getElementById('desc-text').innerHTML = `
-          The project is a small futuristic city designed to be eco-friendly and provide a comfortable and sustainable lifestyle. 
-          The city includes two schools and a central supermarket serving the residents, along with a group of modern houses.<br><br>
-          The layout is designed so that all facilities are within walking or cycling distance, eliminating the need for cars. 
-          This reduces pollution and makes the city quieter and healthier.<br><br>
-          Houses and streets are arranged to allow natural airflow, reducing the need for air conditioners. 
-          Each home has openings for air circulation, keeping it cool naturally.<br><br>
-          Solar panels are installed on rooftops to generate clean electricity from sunlight, 
-          making the city fully dependent on renewable energy. 
-          In addition, special <b>Piezoelectric</b> tiles are used on sidewalks and streets to convert footsteps into electricity for powering streetlights and signals.<br><br>
-          The city is not only a place to live but a model for a smarter, cleaner, and healthier future.
-        `;
-
-        document.getElementById('features-title').textContent = 'Project Features';
-        document.getElementById('features-list').innerHTML = `
-          <li>Dependence on renewable energy</li>
-          <li>Smart and emission-free transportation</li>
-          <li>Eco-friendly smart buildings</li>
-        `;
-
-        document.getElementById('benefits-title').textContent = 'Project Benefits';
-        document.getElementById('benefits-list').innerHTML = `
-          <li>Improving quality of life</li>
-          <li>Environmental preservation</li>
-          <li>Reducing pollution and noise</li>
-          <li>Encouraging innovation and technology</li>
-        `;
-
-        document.getElementById('points-title').textContent = 'Main Highlights';
-        document.getElementById('p1-title').textContent = '1. Realistic 3D Design';
-        document.getElementById('p2-title').textContent = '2. Smart Traffic Simulation';
-        document.getElementById('p3-title').textContent = '3. Solar-Powered Lighting System';
-        document.getElementById('p4-title').textContent = '4. Piezoelectric Tiles for Energy Generation';
-
-        document.getElementById('team-title').textContent = 'Team Members';
-        document.getElementById('footer').textContent = '© 2025 - Future City Project | Future School';
-      } else {
-        document.documentElement.lang = 'ar';
-        document.documentElement.dir = 'rtl';
-        langBtn.textContent = 'English';
-        lang = 'ar';
-
-        document.getElementById('title').textContent = 'مشروع أنسنة المدن';
-        document.getElementById('desc-title').textContent = 'وصف المشروع';
-        document.getElementById('desc-text').innerHTML = `
-          المشروع عبارة عن مدينة مستقبلية صغيرة مصممة لتكون صديقة للبيئة وتوفر أسلوب حياة مريح ومستدام. تحتوي المدينة على مدرستين وسوبرماركت مركزي يخدم السكان، بالإضافة إلى مجموعة من المنازل الحديثة.<br><br>
-          تم تصميم تخطيط المدينة بحيث تكون جميع المرافق قريبة من البيوت، مما يجعل التنقل إليها ممكنًا باستخدام الدراجات الهوائية أو المشي فقط، دون الحاجة إلى السيارات. هذا يقلل من التلوث ويجعل المدينة أكثر هدوءًا وصحية.<br><br>
-          كما تم الاهتمام بـ تخطيط البيوت والشوارع بحيث يسمح بمرور الهواء بين المنازل، مما يقلل من الحاجة إلى أجهزة التبريد. كل بيت يحتوي على فتحات لدخول وخروج الهواء لتجديده باستمرار داخل المنزل وتبريده بشكل طبيعي.<br><br>
-          أما من ناحية الطاقة، فقد تم تركيب ألواح شمسية على أسطح المنازل لتوليد الكهرباء النظيفة من أشعة الشمس، مما يجعل المدينة تعتمد على الطاقة المتجددة بشكل كامل. بالإضافة إلى ذلك، تم استخدام بلاطات خاصة بتقنية <b>البيزوالكترك (Piezoelectric)</b> في الأرصفة والشوارع التي يمشي عليها الناس، حيث تقوم بتحويل ضغط خطوات المشاة إلى طاقة كهربائية يمكن استخدامها في تشغيل إنارة الشوارع وإشارات المرور.<br><br>
-          المدينة ليست فقط مكانًا للعيش، بل نموذج لمستقبل يعتمد على التصميم الذكي، الطاقة النظيفة، والحياة الصحية.
-        `;
-
-        document.getElementById('features-title').textContent = 'مميزات المشروع';
-        document.getElementById('features-list').innerHTML = `
-          <li>الاعتماد على الطاقة المتجددة</li>
-          <li>مواصلات ذكية وبدون انبعاثات</li>
-          <li>مباني ذكية وصديقة للبيئة</li>
-        `;
-
-        document.getElementById('benefits-title').textContent = 'فوائد المشروع';
-        document.getElementById('benefits-list').innerHTML = `
-          <li>تحسين جودة الحياة</li>
-          <li>الحفاظ على البيئة</li>
-          <li>تقليل التلوث والضوضاء</li>
-          <li>تشجيع الابتكار والتكنولوجيا</li>
-        `;
-
-        document.getElementById('points-title').textContent = 'أهم النقاط في المشروع';
-        document.getElementById('p1-title').textContent = '1. تصميم ثلاثي الأبعاد واقعي';
-        document.getElementById('p2-title').textContent = '2. محاكاة حركة المرور الذكية';
-        document.getElementById('p3-title').textContent = '3. نظام إضاءة يعمل بالطاقة الشمسية';
-        document.getElementById('p4-title').textContent = '4. استخدام بلاطات خاصة لتوليد الكهرباء عند المشي عليها (Piezoelectric)';
-
-        document.getElementById('team-title').textContent = 'فريق العمل';
-        document.getElementById('footer').textContent = '© 2025 - مشروع مدينة المستقبل | مدرسة المستقبل';
+    const STR = {
+      en: {
+        skip: "Skip to content", brand: "Future City",
+        nav_overview: "Overview", nav_pillars: "Pillars", nav_innovation: "Innovation", nav_gallery: "Gallery", nav_team: "Team",
+        hero_badge: "Student Innovation Project • Sustainable Smart City",
+        hero_title: "A car-free, solar-powered neighborhood of the future",
+        hero_lead: "A student-designed model of a small sustainable city — two schools and a central market within walking distance, naturally ventilated homes, and streets that generate their own electricity.",
+        cta_explore: "Explore the design", cta_how: "How it works",
+        hero_caption: "Physical scale model of the Future City, built by the student team.",
+        stat1_v: "100%", stat1_l: "renewable electricity goal",
+        stat2_v: "0 cars", stat2_l: "needed inside the city",
+        stat3_v: "2 + 1", stat3_l: "schools plus central market",
+        stat4_v: "2", stat4_l: "clean energy systems",
+        k_overview: "Project overview", overview_h: "A city designed around people, not cars",
+        overview_sub: "Everything is close, quiet and clean — the layout itself does most of the work.",
+        ov_p1: "The Future City is a small model city planned to be eco-friendly and comfortable. It contains modern houses, two schools and one central supermarket serving all residents — every daily destination is within walking or cycling distance.",
+        ov_p2: "Because nothing depends on cars, the city is quieter, safer and far less polluted. Homes and streets are spaced to let air flow naturally between buildings, with openings in each house that keep air circulating — cooling interiors without constant air-conditioning.",
+        ov_p3: "Energy comes from the city itself: rooftop solar panels generate clean daytime power, while piezoelectric floor tiles in sidewalks convert the pressure of footsteps into electricity for street lighting and signals. It is not just a place to live — it is a working model of a smarter, cleaner future.",
+        k_pillars: "Design pillars", pillars_h: "Three ideas hold the whole city together",
+        pillars_sub: "Energy, mobility and housing were designed as one system, not three separate problems.",
+        p1_h: "Clean energy, generated on site", p1_p: "Rooftop solar panels power homes from sunlight, supported by footstep-energy tiles that light the streets at night.",
+        p2_h: "Car-free, walkable mobility", p2_p: "Schools, shops and homes sit close together, so walking and cycling replace cars — cutting emissions and noise.",
+        p3_h: "Buildings that breathe", p3_p: "Street orientation and wall openings channel natural airflow through every home, reducing the need for cooling.",
+        k_innov: "Innovation spotlight", innov_h: "How the city powers itself",
+        innov_sub: "Two complementary renewable systems — one for rooftops, one for the streets people walk every day.",
+        spot1_tag: "System 1 • Rooftops", spot1_h: "Solar panels on every home",
+        spot1_p: "Each rooftop carries photovoltaic panels that convert sunlight directly into household electricity — the city's primary power source and the reason it can aim for full renewable independence.",
+        spot2_tag: "System 2 • Streets", spot2_h: "Piezoelectric walkways",
+        spot2_p: "Special floor tiles under sidewalks turn the pressure of every footstep into small electric charges. Collected across thousands of steps, this energy powers streetlights and traffic signals.",
+        k_gallery: "Design highlights", gallery_h: "From model to systems",
+        gallery_sub: "Key views of the physical model and the technologies inside it.",
+        g1_h: "1. Realistic physical model", g1_p: "A detailed scale model showing homes, streets and shared facilities.",
+        g2_h: "2. Walkable street layout", g2_p: "Short, connected routes designed for pedestrians and bicycles.",
+        g3_h: "3. Solar-powered lighting", g3_p: "Rooftop panels feeding clean electricity into homes and lights.",
+        g4_h: "4. Footstep-energy tiles", g4_p: "Piezoelectric tiles converting footsteps into street power.",
+        k_impact: "Impact", ben_h: "Why it matters",
+        ben_sub: "The design pays off in health, environment and learning at the same time.",
+        b1_h: "Better daily life", b1_p: "Quiet streets, short walks, cleaner air.",
+        b2_h: "Protected environment", b2_p: "Renewables instead of fossil fuel.",
+        b3_h: "Less pollution & noise", b3_p: "No inner-city car traffic.",
+        b4_h: "Hands-on innovation", b4_p: "Students building real systems.",
+        k_team: "Team", team_h: "Meet the team",
+        team_sub: "Five students — model building, research and web presentation.",
+        r_saeed: "Model Design & Build", r_mohammed: "Concept, energy research & website",
+        r_hamad: "Urban Planning & Build", r_mahmoud: "Research & Build", r_aziz: "Research & Build",
+        lead_badge: "★ Project lead",
+        k_author: "For reviewers", author_h: "About the builder",
+        author_sub: "Project lead — concept, sustainability research & this website",
+        author_p: "I co-designed the Future City concept with my team, researched its two energy systems (rooftop solar and piezoelectric streets), and designed and coded this bilingual website from scratch with HTML, CSS and JavaScript — no templates, no frameworks.",
+        au_l1: "Applied sustainability thinking: walkability, passive cooling, on-site renewables",
+        au_l2: "Built a responsive, accessible, bilingual (EN/AR) static website",
+        au_l3: "Presented technical ideas for a non-technical audience",
+        footer: "© 2026 Future City Project • Built by Mohammed Khaled with the school team",
+        back_top: "Back to top ↑",
+        toggle: "العربية"
+      },
+      ar: {
+        skip: "تخطَّ إلى المحتوى", brand: "مدينة المستقبل",
+        nav_overview: "نظرة عامة", nav_pillars: "الركائز", nav_innovation: "الابتكار", nav_gallery: "المعرض", nav_team: "الفريق",
+        hero_badge: "مشروع طلابي مبتكر • مدينة ذكية مستدامة",
+        hero_title: "حيّ المستقبل: بلا سيارات ويعمل بالطاقة الشمسية",
+        hero_lead: "نموذج مدينة صغيرة مستدامة من تصميم طلاب — مدرستان وسوق مركزي على مسافة مشي، وبيوت ذات تهوية طبيعية، وشوارع تولّد كهرباءها بنفسها.",
+        cta_explore: "استكشف التصميم", cta_how: "كيف تعمل؟",
+        hero_caption: "المجسّم المادي لمدينة المستقبل، من تنفيذ فريق الطلاب.",
+        stat1_v: "100%", stat1_l: "هدف الكهرباء المتجددة",
+        stat2_v: "0 سيارات", stat2_l: "داخل المدينة",
+        stat3_v: "2 + 1", stat3_l: "مدرستان وسوق مركزي",
+        stat4_v: "2", stat4_l: "أنظمة طاقة نظيفة",
+        k_overview: "نظرة عامة", overview_h: "مدينة مصممة للناس لا للسيارات",
+        overview_sub: "كل شيء قريب وهادئ ونظيف — التصميم نفسه يقوم بمعظم العمل.",
+        ov_p1: "مدينة المستقبل مدينة نموذجية صغيرة مخططة لتكون صديقة للبيئة ومريحة. تضم بيوتًا حديثة ومدرستين وسوبرماركت مركزيًا يخدم جميع السكان — وكل الوجهات اليومية على مسافة مشي أو دراجة.",
+        ov_p2: "بما أن لا شيء يعتمد على السيارات، فالمدينة أهدأ وأكثر أمانًا وأقل تلوثًا. البيوت والشوارع متباعدة بما يسمح بمرور الهواء طبيعيًا بين المباني، مع فتحات في كل بيت تُبقي الهواء متجددًا — فتبرد البيوت دون تشغيل دائم للمكيفات.",
+        ov_p3: "الطاقة تأتي من المدينة نفسها: ألواح شمسية على الأسطح تولّد كهرباء نظيفة نهارًا، وبلاطات بيزوالكترك في الأرصفة تحوّل ضغط خطوات المشاة إلى كهرباء لإنارة الشوارع والإشارات. إنها ليست مكانًا للعيش فقط — بل نموذج عملي لمستقبل أذكى وأنظف.",
+        k_pillars: "ركائز التصميم", pillars_h: "ثلاث أفكار تحمل المدينة كلها",
+        pillars_sub: "الطاقة والتنقل والإسكان صُممت كنظام واحد لا ثلاث مشاكل منفصلة.",
+        p1_h: "طاقة نظيفة من قلب المدينة", p1_p: "ألواح شمسية على الأسطح تغذي البيوت من الشمس، تدعمها بلاطات طاقة الخطوات التي تضيء الشوارع ليلًا.",
+        p2_h: "تنقل بلا سيارات", p2_p: "المدارس والمتاجر والبيوت متقاربة، فالمشي والدراجات يغنيان عن السيارات — ويخفضان الانبعاثات والضوضاء.",
+        p3_h: "مبانٍ تتنفس", p3_p: "اتجاه الشوارع وفتحات الجدران توجه تدفق الهواء الطبيعي عبر كل بيت، فيقل الاحتياج للتبريد.",
+        k_innov: "تسليط على الابتكار", innov_h: "كيف تغذي المدينة نفسها؟",
+        innov_sub: "نظامان متكاملان للطاقة المتجددة — واحد للأسطح وآخر للشوارع التي نمشي عليها كل يوم.",
+        spot1_tag: "النظام 1 • الأسطح", spot1_h: "ألواح شمسية على كل بيت",
+        spot1_p: "يحمل كل سطح ألواحًا فوتوفولطية تحوّل ضوء الشمس مباشرة إلى كهرباء منزلية — مصدر الطاقة الرئيسي وسبب قدرة المدينة على استهداف الاستقلال المتجدد الكامل.",
+        spot2_tag: "النظام 2 • الشوارع", spot2_h: "ممرات بيزوالكترك",
+        spot2_p: "بلاطات خاصة تحت الأرصفة تحوّل ضغط كل خطوة إلى شحنات كهربائية صغيرة. ومع آلاف الخطوات تُجمع طاقة تشغّل إنارة الشوارع وإشارات المرور.",
+        k_gallery: "أبرز التصميم", gallery_h: "من المجسّم إلى الأنظمة",
+        gallery_sub: "مشاهد أساسية للمجسّم المادي والتقنيات التي بداخله.",
+        g1_h: "1. مجسّم مادي واقعي", g1_p: "مجسّم تفصيلي يعرض البيوت والشوارع والمرافق المشتركة.",
+        g2_h: "2. شوارع صديقة للمشاة", g2_p: "طرق قصيرة متصلة مصممة للمشاة والدراجات.",
+        g3_h: "3. إضاءة بالطاقة الشمسية", g3_p: "ألواح الأسطح تغذي البيوت والإنارة بكهرباء نظيفة.",
+        g4_h: "4. بلاطات طاقة الخطوات", g4_p: "بلاطات بيزوالكترك تحوّل المشي إلى طاقة للشوارع.",
+        k_impact: "الأثر", ben_h: "لماذا هذا مهم؟",
+        ben_sub: "التصميم يعود بالنفع على الصحة والبيئة والتعلم معًا.",
+        b1_h: "حياة يومية أفضل", b1_p: "شوارع هادئة ومشاوير قصيرة وهواء أنظف.",
+        b2_h: "بيئة محمية", b2_p: "طاقة متجددة بدل الوقود الأحفوري.",
+        b3_h: "تلوث وضوضاء أقل", b3_p: "بلا حركة سيارات داخل المدينة.",
+        b4_h: "ابتكار عملي", b4_p: "طلاب يبنون أنظمة حقيقية.",
+        k_team: "الفريق", team_h: "تعرف على الفريق",
+        team_sub: "خمسة طلاب — بناء المجسّم والبحث والعرض عبر الويب.",
+        r_saeed: "تصميم وتنفيذ المجسّم", r_mohammed: "الفكرة وبحث الطاقة والموقع",
+        r_hamad: "التخطيط العمراني والبناء", r_mahmoud: "البحث والبناء", r_aziz: "البحث والبناء",
+        lead_badge: "★ قائد المشروع",
+        k_author: "للمراجعين", author_h: "عن المنفّذ",
+        author_sub: "قائد المشروع — الفكرة وبحث الاستدامة وهذا الموقع",
+        author_p: "شاركت في تصميم فكرة مدينة المستقبل مع فريقي، وبحثت نظامي الطاقة (الشمسية على الأسطح وشوارع البيزوالكترك)، وصممت وبرمجت هذا الموقع ثنائي اللغة من الصفر بـ HTML وCSS وJavaScript — دون قوالب أو أطر جاهزة.",
+        au_l1: "تفكير استدامة تطبيقي: مشي وتهوية طبيعية وطاقة متجددة محلية",
+        au_l2: "بناء موقع ثابت متجاوب وسهل الوصول وثنائي اللغة (EN/AR)",
+        au_l3: "عرض أفكار تقنية لجمهور غير تقني",
+        footer: "© 2026 مشروع مدينة المستقبل • تنفيذ محمد خالد مع فريق المدرسة",
+        back_top: "عودة للأعلى ↑",
+        toggle: "English"
       }
-    });
+    };
+
+    const btn = document.getElementById("lang-toggle");
+    let lang = "en";
+    function setLang(next) {
+      lang = next;
+      const dict = STR[lang];
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const k = el.getAttribute("data-i18n");
+        if (dict[k] !== undefined) el.innerHTML = dict[k];
+      });
+      btn.textContent = dict.toggle;
+      btn.setAttribute("aria-pressed", lang === "ar" ? "true" : "false");
+      document.title = lang === "ar"
+        ? "مشروع مدينة المستقبل — مدينة ذكية مستدامة بقيادة محمد خالد"
+        : "Future City Project — Sustainable Smart City by Mohammed Khaled";
+    }
+    btn.addEventListener("click", () => setLang(lang === "en" ? "ar" : "en"));
   </script>
 </body>
 </html>
