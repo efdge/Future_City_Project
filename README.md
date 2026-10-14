@@ -1,12 +1,11 @@
 # 🏙️ Future City Project | مشروع مدينة المستقبل
 
 > A student-designed sustainable smart city — car-free, solar-powered, and built around people.
-> Website designed and built by **Mohammed Khaled** with his school team.
+> A student project by **Mohammed Khaled** with his school team.
 
 ![Future City model](city-model.jpg)
 
-**Live page:** open `index.html` in any browser — no build step, no dependencies.
-Bilingual: **English by default, العربية بضغطة زر.**
+Open `index.html` in any browser to view the project showcase (English by default, with an Arabic toggle).
 
 ---
 
@@ -39,32 +38,25 @@ A scale-model concept of a small sustainable city: modern houses, **two schools*
 ### My role — Mohammed Khaled
 
 - Co-designed the city concept and researched both energy systems (solar + piezoelectric).
-- **Designed and coded this entire website from scratch** — semantic HTML, custom CSS, vanilla JS language toggle. No templates, no frameworks.
-- Skills demonstrated: sustainability thinking, responsive/accessible frontend, bilingual technical communication.
+- Skills demonstrated: sustainability research and clear technical communication.
 
 ### Team
 
-- **Mohammed Khaled** — concept, energy research & website
+- **Mohammed Khaled** — concept & energy research
 - Saeed Hamad — model design & build
 - Hamad Al Nuaimi — urban planning & build
 - Mohammed Mahmoud — research & build
 - Aziz Ghareeb — research & build
 
-### Run it locally
+### Viewing the showcase
 
-```bash
-# any static server works, or just double-click index.html
-python -m http.server 8000
-# → http://localhost:8000
-```
-
-To publish free on GitHub Pages: repo Settings → Pages → Deploy from branch → `main` + `/root`. Your scholarship letter can then link directly to the live page.
+Open `index.html` in any browser (English by default, with an Arabic toggle).
 
 ### Project structure
 
 ```
 future-city-project/
-├── index.html      # the whole site (HTML + CSS + JS, bilingual EN/AR)
+├── index.html      # project showcase page (English/Arabic)
 ├── city-model.jpg     # city model (hero + gallery)
 ├── walkable-streets.jpg         # walkable streets
 ├── solar-panels.jpg      # solar panels
@@ -89,11 +81,10 @@ future-city-project/
 ### دوري — محمد خالد
 
 - شاركت في تصميم الفكرة وبحث نظامي الطاقة (الشمسية + البيزوالكترك).
-- **صممت وبرمجت هذا الموقع كاملًا من الصفر** — HTML دلالي وCSS مخصص وJavaScript خالص لتبديل اللغة، دون قوالب أو أطر جاهزة.
 
 ### الفريق
 
-- **محمد خالد** — الفكرة وبحث الطاقة والموقع
+- **محمد خالد** — الفكرة وبحث الطاقة
 - سعيد حمد — تصميم وتنفيذ المجسّم
 - حمد النعيمي — التخطيط العمراني والبناء
 - محمد محمود — البحث والبناء
@@ -101,7 +92,7 @@ future-city-project/
 
 ### التشغيل محليًا
 
-افتح ملف `index.html` في أي متصفح مباشرة — لا يحتاج بناءً ولا مكتبات.
+افتح ملف `index.html` في أي متصفح مباشرة لعرض المشروع.
 
 ---
 
